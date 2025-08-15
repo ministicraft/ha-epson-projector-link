@@ -7,6 +7,7 @@ from .projector.const import PROPERTY_BRIGHTNESS
 from .projector.const import PROPERTY_COLOR_MODE
 from .projector.const import PROPERTY_ERR
 from .projector.const import PROPERTY_LAMP_HOURS
+from .projector.const import PROPERTY_LUMINANCE_LEVEL
 from .projector.const import PROPERTY_MUTE
 from .projector.const import PROPERTY_POWER_CONSUMPTION_MODE
 from .projector.const import PROPERTY_SOURCE
@@ -28,6 +29,7 @@ PROPERTY_TO_ATTRIBUTE_NAME_MAP = {
     PROPERTY_COLOR_MODE: "color_mode",
     PROPERTY_ERR: "error",
     PROPERTY_LAMP_HOURS: "lamp_hours",
+    PROPERTY_LUMINANCE_LEVEL: "luminance_level",
     PROPERTY_MUTE: "is_volume_muted",
     PROPERTY_POWER_CONSUMPTION_MODE: "power_consumption_mode",
     PROPERTY_SOURCE: "source",
@@ -43,3 +45,4 @@ SERVICE_SELECT_COLOR_MODE = "select_color_mode"
 SERVICE_SELECT_POWER_CONSUMPTION_MODE = "select_power_consumption_mode"
 SERVICE_SEND_COMMAND = "send_command"
 SERVICE_SET_BRIGHTNESS = "set_brightness"
+SERVICE_SET_LUMINANCE_LEVEL = "set_luminance_level"

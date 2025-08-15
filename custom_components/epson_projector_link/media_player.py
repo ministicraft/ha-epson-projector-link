@@ -33,6 +33,7 @@ from .const import SERVICE_SELECT_COLOR_MODE
 from .const import SERVICE_SELECT_POWER_CONSUMPTION_MODE
 from .const import SERVICE_SEND_COMMAND
 from .const import SERVICE_SET_BRIGHTNESS
+from .const import SERVICE_SET_LUMINANCE_LEVEL
 from .const import STATE_ERROR
 from .projector.const import AUTO_IRIS_MODE_CODE_INVERTED_MAP
 from .projector.const import COLOR_MODE_CODE_INVERTED_MAP
@@ -53,6 +54,7 @@ from .projector.const import PROPERTY_AUTO_IRIS_MODE
 from .projector.const import PROPERTY_BRIGHTNESS
 from .projector.const import PROPERTY_COLOR_MODE
 from .projector.const import PROPERTY_ERR
+from .projector.const import PROPERTY_LUMINANCE_LEVEL
 from .projector.const import PROPERTY_MUTE
 from .projector.const import PROPERTY_POWER
 from .projector.const import PROPERTY_POWER_CONSUMPTION_MODE
@@ -152,6 +154,15 @@ def _setup_services():
             )
         },
         SERVICE_SET_BRIGHTNESS,
+    )
+    platform.async_register_entity_service(
+        SERVICE_SET_LUMINANCE_LEVEL,
+        {
+            vol.Required(
+                PROPERTY_TO_ATTRIBUTE_NAME_MAP[PROPERTY_LUMINANCE_LEVEL]
+            ): vol.All(vol.Coerce(int), vol.Range(min=0, max=100))
+        },
+        SERVICE_SET_LUMINANCE_LEVEL,
     )
 
 
@@ -428,6 +439,9 @@ class EpsonProjectorMediaPlayer(MediaPlayerEntity, RestoreEntity):
 
     async def set_brightness(self, brightness):
         await self._projector.set_property(PROPERTY_BRIGHTNESS, brightness)
+
+    async def set_luminance_level(self, luminance_level):
+        await self._projector.set_property(PROPERTY_LUMINANCE_LEVEL, luminance_level)
 
     async def send_command(self, command):
         await self._projector.send_command(command)

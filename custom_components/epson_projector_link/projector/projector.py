@@ -28,6 +28,7 @@ from .const import PROPERTY_COLOR_MODE
 from .const import PROPERTY_ERR
 from .const import PROPERTY_ERR_CODE_MAP
 from .const import PROPERTY_LAMP_HOURS
+from .const import PROPERTY_LUMINANCE_LEVEL
 from .const import PROPERTY_MUTE
 from .const import PROPERTY_POWER
 from .const import PROPERTY_POWER_CONSUMPTION_MODE
@@ -81,6 +82,7 @@ PROPERTY_PARSER_MAP = {
     PROPERTY_COLOR_MODE: COLOR_MODE_CODE_MAP.get,
     PROPERTY_ERR: PROPERTY_ERR_CODE_MAP.get,
     PROPERTY_LAMP_HOURS: int,
+    PROPERTY_LUMINANCE_LEVEL: int,
     PROPERTY_BRIGHTNESS: int,
     PROPERTY_MUTE: lambda v: v == ON,
     PROPERTY_POWER: POWER_PARSER,

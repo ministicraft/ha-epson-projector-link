@@ -146,3 +146,21 @@ set_brightness:
         number:
           min: 0
           max: 255
+
+set_luminance_level:
+  name: Set Luminance Level
+  description: Set luminance level of Epson projector
+  target:
+    entity:
+      integration: epson_projector_link
+      domain: media_player
+  fields:
+    luminance_level:
+      name: Luminance Level
+      description: Luminance Level
+      required: true
+      example: 128
+      selector:
+        number:
+          min: 0
+          max: 255

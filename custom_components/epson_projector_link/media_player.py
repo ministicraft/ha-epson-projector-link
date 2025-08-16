@@ -160,7 +160,7 @@ def _setup_services():
         {
             vol.Required(
                 PROPERTY_TO_ATTRIBUTE_NAME_MAP[PROPERTY_LUMINANCE_LEVEL]
-            ): vol.All(vol.Coerce(int), vol.Range(min=0, max=100))
+            ): vol.All(vol.Coerce(int), vol.Range(min=0, max=255))
         },
         SERVICE_SET_LUMINANCE_LEVEL,
     )
